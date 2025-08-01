@@ -3,8 +3,8 @@
 ## 👩‍🎓 Student Information
 
 **Student Details:**
-- **Name:** [Your Full Name]
-- **Student ID:** [Your Student ID]
+- **Name:** [AMOS Nkurunziza]
+- **Student ID:** [26973]
 - **Course:** INSY 8413 | Introduction to Big Data Analytics
 - **Assistant Lecturer:** Eric Maniraguha
 - **Academic Year:** 2024–2025 (Semester III)
@@ -566,7 +566,7 @@ def calculate_composite_risk(row):
 **Project Lead:** [AMOS Nkurunziza]  
 **Email:** [nziza.amos1@gmail.com]  
 **GitHub:** [https://github.com/amos1575/DropAlert-Rwanda]  
-**LinkedIn:** [linkedin.com/in/www.linkedin.com/in/nkurunziza-amos-33910a35a]
+**LinkedIn:** [www.linkedin.com/in/nkurunziza-amos-33910a35a]
 
 ### 🤝 Acknowledgments
 - **Instructor:** Eric Maniraguha (AUCA Faculty of IT)
