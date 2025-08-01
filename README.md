@@ -563,10 +563,10 @@ def calculate_composite_risk(row):
 
 ## 📞 Contact & Collaboration
 
-**Project Lead:** [Your Name]  
-**Email:** [your.email@student.auca.ac.rw]  
-**GitHub:** [github.com/your-username/DropAlert-Rwanda]  
-**LinkedIn:** [linkedin.com/in/your-profile]
+**Project Lead:** [AMOS Nkurunziza]  
+**Email:** [nziza.amos1@gmail.com]  
+**GitHub:** [https://github.com/amos1575/DropAlert-Rwanda]  
+**LinkedIn:** [linkedin.com/in/www.linkedin.com/in/nkurunziza-amos-33910a35a]
 
 ### 🤝 Acknowledgments
 - **Instructor:** Eric Maniraguha (AUCA Faculty of IT)
