@@ -105,6 +105,9 @@ print(f"📅 Year range: {df['Year'].min()} - {df['Year'].max()}")
 - ✅ 7-year temporal coverage for trend analysis
 - ✅ All 5 Rwandan provinces represented
 
+
+<img width="1184" height="644" alt="save and load data" src="https://github.com/user-attachments/assets/a742ed95-f5ac-4712-9714-896ce653ae98" />
+
 #### Step 2: Advanced Data Cleaning
 python
 # Standardize column names and handle data types
@@ -137,6 +140,8 @@ df_clean['region_type'] = df_clean['province'].apply(
 - ✅ Handled missing values using domain-appropriate imputation
 - ✅ Created derived features for enhanced analysis
 - ✅ Established consistent data types across all variables
+
+<img width="959" height="649" alt="advanced data clean" src="https://github.com/user-attachments/assets/ee478fe2-a9ba-4a91-b670-bcfdd02db058" />
 
 ### 📊 Phase 2: Exploratory Data Analysis (EDA)
 
@@ -196,6 +201,8 @@ plt.show()
 - *Gender Gap:* Male dropout rates consistently *1.8%* higher than female rates across all years
 - *Income Impact:* Schools serving low-income communities show *4.5%* higher dropout rates
 - *Teacher Ratios:* Schools with teacher-student ratios >50:1 show *6.2%* higher dropout rates
+  
+<img width="936" height="627" alt="trend visual" src="https://github.com/user-attachments/assets/b58d8b8c-6924-4e0b-85b3-b1833614386d" />
 
 ### 🔗 Phase 3: Advanced Correlation Analysis
 
@@ -276,6 +283,7 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
+<img width="666" height="626" alt="colleration" src="https://github.com/user-attachments/assets/e200baf6-3dc3-4a43-8223-8308cafaaf4a" />
 
 #### Step 2: Model Training & Evaluation
 python
@@ -313,6 +321,8 @@ lr_f1 = f1_score(y_test, lr_predictions)
 
 *🎯 Model Selection:* Logistic Regression selected as primary model due to superior performance across all metrics.
 
+<img width="891" height="425" alt="Training   Evaluation" src="https://github.com/user-attachments/assets/0d7025b4-ebbd-4906-ac6f-ebb9743f4cb0" />
+
 #### Step 3: Feature Importance Analysis
 python
 # Analyze feature importance from Random Forest
@@ -332,6 +342,9 @@ for i, (_, row) in enumerate(feature_importance.iterrows(), 1):
 3. *Reenrollment_Rate* (0.198) - *Key retention indicator* - Students returning to school
 4. *Avg_Household_Income_RWF* (0.142) - *Socio-economic factor* - Family financial capacity
 5. *Province_Encoded* (0.108) - *Geographic influence* - Regional education infrastructure
+
+   <img width="569" height="250" alt="ímportance" src="https://github.com/user-attachments/assets/6a7a1546-bbda-4079-8ee1-b241aabd765b" />
+
 
 #### Step 4: Model Validation & Prediction Generation
 python
@@ -465,31 +478,7 @@ def predict_dropout_risk(student_data):
 - *Intervention Evaluation:* Measure actual impact of targeted support programs
 - *External Factors:* Include economic, health, and social external variables
 
-## 📁 Repository Structure
 
-
-DropAlert-Rwanda/
-├── 📁 data/
-│   ├── DropAlert_Rwanda_cleaned.csv          # Original cleaned dataset
-│   ├── DropAlert_Rwanda_Analysis_Results.csv # ML-enhanced dataset
-│   └── data_dictionary.md                    # Variable definitions
-├── 📁 notebooks/
-│   ├── 01_data_preprocessing.ipynb           # Data cleaning & preparation
-│   ├── 02_exploratory_analysis.ipynb        # EDA and visualizations
-│   ├── 03_machine_learning.ipynb            # Model training & evaluation
-│   └── 04_results_analysis.ipynb            # Final insights & recommendations
-├── 📁 visualizations/
-│   ├── dropout_trends.png                   # Time series analysis
-│   ├── correlation_heatmap.png              # Feature relationships
-│   ├── provincial_comparison.png            # Geographic analysis
-│   └── model_performance.png                # ML evaluation metrics
-├── 📁 power_bi/
-│   ├── DropAlert_Rwanda_Dashboard.pbix       # Interactive dashboard
-│   └── dashboard_screenshots/               # Visual documentation
-├── 📁 presentations/
-│   └── DropAlert_Rwanda_Final.pptx          # Project presentation
-├── 📋 README.md                             # This documentation
-└── 📋 requirements.txt                      # Python dependencies
 
 
 ## 🛠 Technical Requirements
@@ -526,14 +515,8 @@ from scipy import stats
 
 ## 🎨 Dashboard Preview
 
-### Main KPI Overview
-![Dashboard Overview](visualizations/dashboard_main.png)
+![WhatsApp Image 2025-08-02 at 21 13 14_f176884a](https://github.com/user-attachments/assets/79d70e91-0d27-49c3-8d88-92364890a3c0)
 
-### Provincial Analysis
-![Provincial View](visualizations/provincial_dashboard.png)
-
-### Predictive Analytics
-![ML Predictions](visualizations/prediction_dashboard.png)
 
 ## 🏆 Innovation & Creativity
 
