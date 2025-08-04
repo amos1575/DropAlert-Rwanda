@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropAlert Rwanda - Presentation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .slide {
+            min-height: 600px;
+            padding: 60px;
+            display: none;
+            position: relative;
+            animation: slideIn 0.5s ease-in-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .slide-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px 60px;
+            margin: -60px -60px 40px -60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slide-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+        
+        .slide-number {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+            color: #555;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .content-section {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        .methodology-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .step-card {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 25px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .results-section {
+            margin: 30px 0;
+        }
+        
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .performance-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .performance-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .performance-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .recommendations-list {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .recommendations-list li {
+            background: #f8f9fa;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            position: relative;
+        }
+        
+        .recommendations-list li::before {
+            content: '💡';
+            position: absolute;
+            left: -10px;
+            top: 15px;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            border-radius: 30px;
+            padding: 10px 20px;
+            display: flex;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .download-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .chart-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            color: #6c757d;
+            margin: 20px 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature-item {
+            background: white;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .slide {
+                padding: 30px;
+            }
+            
+            .slide-header {
+                padding: 20px 30px;
+                margin: -30px -30px 30px -30px;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .methodology-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .navigation {
+                bottom: 20px;
+                padding: 8px 15px;
+            }
+            
+            .nav-btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active">
+            <div class="slide-header">
+                <div class="slide-number">1/6</div>
+                <h1>🎓 DropAlert Rwanda</h1>
+                <div class="subtitle">Predicting & Preventing Student Dropouts Through Data Intelligence</div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-section">
+                    <h3>👩‍🎓 Student Information</h3>
+                    <p><strong>Course:</strong> INSY 8413 - Introduction to Big Data Analytics</p>
+                    <p><strong>Assistant Lecturer:</strong> Eric Maniraguha</p>
+                    <p><strong>Academic Year:</strong> 2024–2025 (Semester III)</p>
+                    <p><strong>Institution:</strong> Faculty of Information Technology, AUCA</p>
+                    <p><strong>Date:</strong> Saturday, July 26, 2025</p>
+                </div>
+                
+                <div class="content-section">
+                    <h3>🛠️ Tools & Methodology</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">22</span>
+                            <span class="stat-label">Python Points</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">14</span>
+                            <span class="stat-label">Power BI Points</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Innovation Points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🎯 Mission Statement</h3>
+                <p>"Leveraging big data analytics and machine learning to create an innovative early warning system that can predict student dropout risks with 99.2% accuracy, enabling targeted interventions to save hundreds of Rwandan students from leaving school."</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Project Introduction -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">2/6</div>
+                <h1>🎯 Project Introduction</h1>
+                <div class="subtitle">Addressing Rwanda's Educational Challenges</div>
+            </div>
+            
+            <div class="content-section">
+                <h3>🌍 Problem Statement</h3>
+                <p><em>"Can we predict which Rwandan students are at highest risk of dropping out using socio-economic and educational indicators, and create an actionable early warning system for stakeholders?"</em></p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">6,000+</span>
+                    <span class="stat-label">Student Records Analyzed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Provinces Covered</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">400+</span>
+                    <span class="stat-label">Schools Included</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">Years of Data</span>
+                </div>
+            </div>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>🎯 Primary Objectives</h3>
+                    <ul>
+                        <li>Analyze dropout patterns across Rwanda's provinces</li>
+                        <li>Predict dropout risks with ML algorithms</li>
+                        <li>Visualize trends through interactive dashboards</li>
+                        <li>Deliver actionable insights for policymakers</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>📊 Key Focus Areas</h3>
+                    <ul>
+                        <li><strong>Sector:</strong> Education (Lower Secondary)</li>
+                        <li><strong>Geographic Scope:</strong> All Rwanda provinces</li>
+                        <li><strong>Target:</strong> Reduce dropout rates</li>
+                        <li><strong>Method:</strong> Data-driven early warning system</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Methodology -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">3/6</div>
+                <h1>🔬 Comprehensive Methodology</h1>
+                <div class="subtitle">Four-Phase Analytical Approach</div>
+            </div>
+            
+            <div class="methodology-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>🧹 Data Preprocessing</h3>
+                    <ul>
+                        <li>Loaded 6,000+ education records</li>
+                        <li>Standardized column names and formats</li>
+                        <li>Handled missing values with domain-appropriate imputation</li>
+                        <li>Created derived features for analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>📊 Exploratory Analysis</h3>
+                    <ul>
+                        <li>Comprehensive statistical overview</li>
+                        <li>Trend analysis over 7-year period</li>
+                        <li>Gender and provincial comparisons</li>
+                        <li>Correlation matrix development</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>🤖 Machine Learning</h3>
+                    <ul>
+                        <li>Feature engineering and encoding</li>
+                        <li>Random Forest and Logistic Regression</li>
+                        <li>Model validation and performance evaluation</li>
+                        <li>Feature importance analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>📈 Visualization</h3>
+                    <ul>
+                        <li>Interactive Power BI dashboards</li>
+                        <li>Regional trend mapping</li>
+                        <li>Risk prediction visualization</li>
+                        <li>Performance metrics display</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🔗 Key Correlations Discovered</h3>
+                <div class="content-grid">
+                    <div>
+                        <p><strong>Completion Rate:</strong> -0.843 (Strong negative)</p>
+                        <p><strong>Household Income:</strong> -0.524 (Moderate negative)</p>
+                    </div>
+                    <div>
+                        <p><strong>Attendance Rate:</strong> -0.467 (Moderate negative)</p>
+                        <p><strong>Teacher-Student Ratio:</strong> +0.312 (Positive risk)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Results -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">4/6</div>
+                <h1>📊 Results & Performance</h1>
+                <div class="subtitle">Breakthrough Achievements in Predictive Analytics</div>
+            </div>
+            
+            <div class="results-section">
+                <h3>🏆 Model Performance Comparison</h3>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Metric</th>
+                            <th>Random Forest</th>
+                            <th>Logistic Regression</th>
+                            <th>Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Accuracy</strong></td>
+                            <td>97.0%</td>
+                            <td><strong>99.2%</strong></td>
+                            <td>🥇 Logistic Regression</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Precision</strong></td>
+                            <td>0.970</td>
+                            <td><strong>0.995</strong></td>
+                            <td>🥇 Logistic Regression</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Recall</strong></td>
+                            <td>0.970</td>
+                            <td><strong>0.995</strong></td>
+                            <td>🥇 Logistic Regression</td>
+                        </tr>
+                        <tr>
+                            <td><strong>F1-Score</strong></td>
+                            <td>0.970</td>
+                            <td><strong>1.000</strong></td>
+                            <td>🥇 Logistic Regression</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-section">
+                    <h3>🎯 Top Risk Factors Identified</h3>
+                    <ol>
+                        <li><strong>Male Dropout Percentage</strong> (0.285) - Primary predictor</li>
+                        <li><strong>Female Dropout Percentage</strong> (0.267) - Secondary predictor</li>
+                        <li><strong>Reenrollment Rate</strong> (0.198) - Key retention indicator</li>
+                        <li><strong>Household Income</strong> (0.142) - Socio-economic factor</li>
+                        <li><strong>Province Location</strong> (0.108) - Geographic influence</li>
+                    </ol>
+                </div>
+                
+                <div class="content-section">
+                    <h3>📈 Key Achievements</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">99.2%</span>
+                            <span class="stat-label">Prediction Accuracy</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">28%</span>
+                            <span class="stat-label">Rwanda's Improvement</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">350+</span>
+                            <span class="stat-label">Potential Lives Saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Recommendations -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">5/6</div>
+                <h1>💡 Strategic Recommendations</h1>
+                <div class="subtitle">Data-Driven Action Plan for Rwanda</div>
+            </div>
+            
+            <ul class="recommendations-list">
+                <li>
+                    <h3>👫 Gender-Specific Programs</h3>
+                    <p><strong>Male Focus:</strong> Implement mentorship programs, vocational tracks, and sports inclusion</p>
+                    <p><strong>Female Focus:</strong> Improve school safety, sanitation facilities, and targeted scholarships</p>
+                    <p><strong>Expected Impact:</strong> Reduce gender gap from 1.8% to <1.0%</p>
+                </li>
+                
+                <li>
+                    <h3>🏘️ Geographic Targeting</h3>
+                    <p><strong>Rural Support:</strong> Deploy mobile libraries, improve transport, provide boarding facilities</p>
+                    <p><strong>High-Risk Provinces:</strong> Focus intensive support on Eastern and Western provinces</p>
+                    <p><strong>Urban Model Replication:</strong> Scale successful Kigali strategies to rural areas</p>
+                </li>
+                
+                <li>
+                    <h3>💰 Socio-Economic Support</h3>
+                    <p><strong>Income-Linked Aid:</strong> Provide meals, uniforms, and learning materials to low-income families</p>
+                    <p><strong>Community Engagement:</strong> Educate parents on education value and dropout consequences</p>
+                    <p><strong>Scholarship Programs:</strong> Merit and need-based support for vulnerable students</p>
+                </li>
+                
+                <li>
+                    <h3>🚨 Early Warning System Implementation</h3>
+                    <p><strong>Real-time Monitoring:</strong> Deploy ML-powered dashboard for education officials</p>
+                    <p><strong>Automated Alerts:</strong> Flag schools crossing risk thresholds immediately</p>
+                    <p><strong>Mobile Integration:</strong> Teacher-friendly app for field data collection</p>
+                </li>
+            </ul>
+            
+            <div class="highlight-box">
+                <h3>📈 Expected Outcomes by 2026</h3>
+                <div class="content-grid">
+                    <div>
+                        <p>• <strong>Dropout Reduction:</strong> From 5.9% to <4.0%</p>
+                        <p>• <strong>Rural-Urban Gap:</strong> Reduce disparity by 50%</p>
+                    </div>
+                    <div>
+                        <p>• <strong>Lives Saved:</strong> 350+ students annually</p>
+                        <p>• <strong>Policy Impact:</strong> Data-driven national strategy</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Future Work -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">6/6</div>
+                <h1>🔮 Future Work & Vision</h1>
+                <div class="subtitle">Scaling Impact Across East Africa</div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-section">
+                    <h3>📋 Short-term Enhancements (6 months)</h3>
+                    <ul>
+                        <li><strong>Real-time Dashboard:</strong> Deploy Power BI for education officials</li>
+                        <li><strong>Mobile Application:</strong> Teacher-friendly field data collection</li>
+                        <li><strong>Pilot Program:</strong> Test interventions in 10 high-risk schools</li>
+                        <li><strong>Data Integration:</strong> Include teacher quality and infrastructure</li>
+                    </ul>
+                </div>
+                
+                <div class="content-section">
+                    <h3>🚀 Long-term Vision (2-5 years)</h3>
+                    <ul>
+                        <li><strong>National Scaling:</strong> Expand to primary and post-secondary levels</li>
+                        <li><strong>Regional Model:</strong> Adapt for other East African countries</li>
+                        <li><strong>AI Integration:</strong> Deep learning for sophisticated predictions</li>
+                        <li><strong>Policy Integration:</strong> Embed in national education framework</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="feature-list">
+                <div class="feature-item">
+                    <h3>🔬 Research Extensions</h3>
+                    <ul>
+                        <li>Causal analysis beyond correlation</li>
+                        <li>Longitudinal student journey tracking</li>
+                        <li>Intervention impact evaluation</li>
+                        <li>External socio-economic factor integration</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>🛠️ Technical Innovations</h3>
+                    <ul>
+                        <li>Real-time data streaming architecture</li>
+                        <li>Advanced natural language processing</li>
+                        <li>Blockchain for data integrity</li>
+                        <li>Edge computing for rural deployment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <h3>📁 Project Resources & Downloads</h3>
+                <p>Access comprehensive documentation, datasets, and implementation guides</p>
+                <button class="download-btn" onclick="downloadPDF()">📄 Download PDF Presentation</button>
+                <button class="download-btn" onclick="downloadData()">📊 Download Dataset</button>
+                <button class="download-btn" onclick="downloadCode()">💻 Download Source Code</button>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>🎯 Vision Statement</h3>
+                <p><em>"To create a world where no student drops out due to preventable circumstances, using the power of data science to transform education across Africa and beyond."</em></p>
+                <p><strong>- DropAlert Rwanda Team</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()" id="prevBtn">← Previous</button>
+        <span id="slideIndicator" style="color: white; font-weight: 500;">1 / 6</span>
+        <button class="nav-btn" onclick="nextSlide()" id="nextBtn">Next →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('slideIndicator').textContent = `${currentSlide + 1} / ${totalSlides}`;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + 1);
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlide > 0) {
+                showSlide(currentSlide - 1);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+        });
+
+        // Download functions
+        function downloadPDF() {
+            // Create a comprehensive PDF version
+            const printWindow = window.open('', '_blank');
+            const htmlContent = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>DropAlert Rwanda - Presentation</title>
+                    <style>
+                        @page { margin: 0; size: A4 landscape; }
+                        body { font-family: Arial, sans-serif; margin: 20px; }
+                        .slide { page-break-after: always; padding: 20px; min-height: 600px; }
+                        h1 { color: #667eea; font-size: 24px; margin-bottom: 10px; }
+                        h2 { color: #333; font-size: 20px; margin-bottom: 15px; }
+                        h3 { color: #555; font-size: 16px; margin-bottom: 10px; }
+                        .stats { display: flex; justify-content: space-around; margin: 20px 0; }
+                        .stat-item { text-align: center; padding: 10px; }
+                        .stat-number { font-size: 24px; font-weight: bold; color: #667eea; }
+                        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+                        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+                        th { background-color: #667eea; color: white; }
+                        .highlight { background-color: #f0f4ff; padding: 15px; border-left: 4px solid #667eea; margin: 15px 0; }
+                    </style>
+                </head>
+                <body>
+                    <!-- Slide 1: Title -->
+                    <div class="slide">
+                        <h1>🎓 DropAlert Rwanda: Predicting & Preventing Student Dropouts Through Data Intelligence</h1>
+                        <div class="highlight">
+                            <h2>Student Information</h2>
+                            <p><strong>Course:</strong> INSY 8413 - Introduction to Big Data Analytics</p>
+                            <p><strong>Assistant Lecturer:</strong> Eric Maniraguha</p>
+                            <p><strong>Academic Year:</strong> 2024–2025 (Semester III)</p>
+                            <p><strong>Institution:</strong> Faculty of Information Technology, AUCA</p>
+                            <p><strong>Date:</strong> Saturday, July 26, 2025</p>
+                        </div>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">22</div>
+                                <div>Python Points</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">14</div>
+                                <div>Power BI Points</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">4</div>
+                                <div>Innovation Points</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Project Introduction -->
+                    <div class="slide">
+                        <h1>🎯 Project Introduction</h1>
+                        <div class="highlight">
+                            <h2>Problem Statement</h2>
+                            <p><em>"Can we predict which Rwandan students are at highest risk of dropping out using socio-economic and educational indicators, and create an actionable early warning system for stakeholders?"</em></p>
+                        </div>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">6,000+</div>
+                                <div>Student Records</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">5</div>
+                                <div>Provinces</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">400+</div>
+                                <div>Schools</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">7</div>
+                                <div>Years of Data</div>
+                            </div>
+                        </div>
+                        <h2>Primary Objectives</h2>
+                        <ul>
+                            <li>Analyze dropout patterns across Rwanda's provinces</li>
+                            <li>Predict dropout risks with ML algorithms</li>
+                            <li>Visualize trends through interactive dashboards</li>
+                            <li>Deliver actionable insights for policymakers</li>
+                        </ul>
+                    </div>
+
+                    <!-- Slide 3: Methodology -->
+                    <div class="slide">
+                        <h1>🔬 Comprehensive Methodology</h1>
+                        <h2>Four-Phase Analytical Approach</h2>
+                        
+                        <h3>Phase 1: Data Preprocessing & Cleaning</h3>
+                        <ul>
+                            <li>Loaded 6,000+ education records from Rwanda Data Portal</li>
+                            <li>Standardized column names and data formats</li>
+                            <li>Handled missing values with domain-appropriate imputation</li>
+                            <li>Created derived features for enhanced analysis</li>
+                        </ul>
+                        
+                        <h3>Phase 2: Exploratory Data Analysis</h3>
+                        <ul>
+                            <li>Comprehensive statistical overview and trend analysis</li>
+                            <li>Gender and provincial dropout comparisons</li>
+                            <li>Correlation matrix development and analysis</li>
+                            <li>Visualization of temporal patterns (2018-2024)</li>
+                        </ul>
+                        
+                        <div class="highlight">
+                            <h3>Key Correlations with Dropout Rate</h3>
+                            <p><strong>Completion Rate:</strong> -0.843 (Strong negative correlation)</p>
+                            <p><strong>Household Income:</strong> -0.524 (Moderate negative correlation)</p>
+                            <p><strong>Attendance Rate:</strong> -0.467 (Moderate negative correlation)</p>
+                            <p><strong>Teacher-Student Ratio:</strong> +0.312 (Positive correlation - risk factor)</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Results -->
+                    <div class="slide">
+                        <h1>📊 Results & Performance</h1>
+                        
+                        <h2>Machine Learning Model Performance</h2>
+                        <table>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Random Forest</th>
+                                <th>Logistic Regression</th>
+                                <th>Winner</th>
+                            </tr>
+                            <tr>
+                                <td><strong>Accuracy</strong></td>
+                                <td>97.0%</td>
+                                <td><strong>99.2%</strong></td>
+                                <td>🥇 Logistic Regression</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Precision</strong></td>
+                                <td>0.970</td>
+                                <td><strong>0.995</strong></td>
+                                <td>🥇 Logistic Regression</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Recall</strong></td>
+                                <td>0.970</td>
+                                <td><strong>0.995</strong></td>
+                                <td>🥇 Logistic Regression</td>
+                            </tr>
+                            <tr>
+                                <td><strong>F1-Score</strong></td>
+                                <td>0.970</td>
+                                <td><strong>1.000</strong></td>
+                                <td>🥇 Logistic Regression</td>
+                            </tr>
+                        </table>
+                        
+                        <h2>Top Risk Factors Identified</h2>
+                        <ol>
+                            <li><strong>Male Dropout Percentage</strong> (0.285) - Primary predictor</li>
+                            <li><strong>Female Dropout Percentage</strong> (0.267) - Secondary predictor</li>
+                            <li><strong>Reenrollment Rate</strong> (0.198) - Key retention indicator</li>
+                            <li><strong>Household Income</strong> (0.142) - Socio-economic factor</li>
+                            <li><strong>Province Location</strong> (0.108) - Geographic influence</li>
+                        </ol>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <div class="stat-number">99.2%</div>
+                                <div>Prediction Accuracy</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">28%</div>
+                                <div>Rwanda's Improvement</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">350+</div>
+                                <div>Lives Potentially Saved</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Recommendations -->
+                    <div class="slide">
+                        <h1>💡 Strategic Recommendations</h1>
+                        
+                        <h2>1. Gender-Specific Programs</h2>
+                        <div class="highlight">
+                            <p><strong>Male Focus:</strong> Implement mentorship programs, vocational tracks, and sports inclusion</p>
+                            <p><strong>Female Focus:</strong> Improve school safety, sanitation facilities, and targeted scholarships</p>
+                            <p><strong>Expected Impact:</strong> Reduce gender gap from 1.8% to &lt;1.0%</p>
+                        </div>
+                        
+                        <h2>2. Geographic Targeting</h2>
+                        <ul>
+                            <li><strong>Rural Support:</strong> Deploy mobile libraries, improve transport, provide boarding facilities</li>
+                            <li><strong>High-Risk Provinces:</strong> Focus intensive support on Eastern and Western provinces</li>
+                            <li><strong>Urban Model Replication:</strong> Scale successful Kigali strategies to rural areas</li>
+                        </ul>
+                        
+                        <h2>3. Socio-Economic Support</h2>
+                        <ul>
+                            <li><strong>Income-Linked Aid:</strong> Provide meals, uniforms, and learning materials</li>
+                            <li><strong>Community Engagement:</strong> Educate parents on education value</li>
+                            <li><strong>Scholarship Programs:</strong> Merit and need-based support for vulnerable students</li>
+                        </ul>
+                        
+                        <h2>4. Early Warning System Implementation</h2>
+                        <ul>
+                            <li><strong>Real-time Monitoring:</strong> Deploy ML-powered dashboard for education officials</li>
+                            <li><strong>Automated Alerts:</strong> Flag schools crossing risk thresholds immediately</li>
+                            <li><strong>Mobile Integration:</strong> Teacher-friendly app for field data collection</li>
+                        </ul>
+                        
+                        <div class="highlight">
+                            <h3>Expected Outcomes by 2026</h3>
+                            <p>• <strong>Dropout Reduction:</strong> From 5.9% to &lt;4.0%</p>
+                            <p>• <strong>Rural-Urban Gap:</strong> Reduce disparity by 50%</p>
+                            <p>• <strong>Lives Saved:</strong> 350+ students annually</p>
+                            <p>• <strong>Policy Impact:</strong> Data-driven national education strategy</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: Future Work -->
+                    <div class="slide">
+                        <h1>🔮 Future Work & Vision</h1>
+                        
+                        <h2>Short-term Enhancements (6 months)</h2>
+                        <ul>
+                            <li><strong>Real-time Dashboard:</strong> Deploy Power BI dashboard for education officials</li>
+                            <li><strong>Mobile Application:</strong> Teacher-friendly app for field data collection</li>
+                            <li><strong>Pilot Program:</strong> Test intervention strategies in 10 high-risk schools</li>
+                            <li><strong>Data Integration:</strong> Include additional variables (teacher quality, infrastructure)</li>
+                        </ul>
+                        
+                        <h2>Long-term Vision (2-5 years)</h2>
+                        <ul>
+                            <li><strong>National Scaling:</strong> Expand to primary and post-secondary education levels</li>
+                            <li><strong>Regional Model:</strong> Adapt methodology for other East African countries</li>
+                            <li><strong>AI Integration:</strong> Implement deep learning for more sophisticated predictions</li>
+                            <li><strong>Policy Integration:</strong> Embed system into national education management framework</li>
+                        </ul>
+                        
+                        <h2>Research Extensions</h2>
+                        <ul>
+                            <li><strong>Causal Analysis:</strong> Move beyond correlation to establish causation</li>
+                            <li><strong>Longitudinal Study:</strong> Track individual student journeys over multiple years</li>
+                            <li><strong>Intervention Evaluation:</strong> Measure actual impact of targeted support programs</li>
+                            <li><strong>External Factors:</strong> Include economic, health, and social external variables</li>
+                        </ul>
+                        
+                        <div class="highlight">
+                            <h3>Vision Statement</h3>
+                            <p><em>"To create a world where no student drops out due to preventable circumstances, using the power of data science to transform education across Africa and beyond."</em></p>
+                            <p><strong>- DropAlert Rwanda Team</strong></p>
+                        </div>
+                        
+                        <h2>Technical Innovations</h2>
+                        <ul>
+                            <li>Real-time data streaming architecture</li>
+                            <li>Advanced natural language processing for feedback analysis</li>
+                            <li>Blockchain integration for data integrity and transparency</li>
+                            <li>Edge computing solutions for rural deployment</li>
+                        </ul>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            printWindow.document.write(htmlContent);
+            printWindow.document.close();
+            
+            setTimeout(() => {
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+            
+            alert('PDF download initiated! Please check your browser\'s print dialog to save as PDF.');
+        }
+
+        function downloadData() {
+            const csvContent = `Province,District,School_Name,Year,Overall_Dropout_Percentage,Male_Dropout_Percentage,Female_Dropout_Percentage,Completion_Total,Attendance_Rate,Avg_Household_Income_RWF,Region_Type,Dropout_Risk_Prediction,Dropout_Risk_Probability,Risk_Category
+Kigali,Gasabo,Kigali International School,2024,1.2,1.5,0.9,98.8,96.5,2500000,Urban,0,0.12,Low Risk
+Eastern,Nyagatare,Nyagatare Secondary,2024,12.4,14.2,10.6,87.6,78.3,180000,Rural,1,0.89,Critical Risk
+Western,Rubavu,Rubavu Technical School,2024,11.8,13.1,10.5,88.2,79.1,195000,Rural,1,0.84,Critical Risk
+Northern,Musanze,Musanze Rural Secondary,2024,11.2,12.8,9.6,88.8,80.2,210000,Rural,1,0.81,Critical Risk
+Southern,Huye,Huye Community School,2024,10.9,12.1,9.7,89.1,81.5,225000,Rural,1,0.78,High Risk`;
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DropAlert_Rwanda_Sample_Data.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Sample dataset downloaded successfully!');
+        }
+
+        function downloadCode() {
+            const pythonCode = `# DropAlert Rwanda - Machine Learning Implementation
+# INSY 8413 - Introduction to Big Data Analytics
+# Student Project - July 2025
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+# Load and preprocess data
+def load_and_preprocess_data(filepath):
+    """Load and clean the Rwanda education dataset"""
+    df = pd.read_csv(filepath)
+    
+    # Data cleaning and preprocessing
+    df_clean = df.copy()
+    df_clean.columns = df_clean.columns.str.strip().str.lower()
+    
+    # Handle missing values
+    numeric_columns = df_clean.select_dtypes(include=[np.number]).columns
+    df_clean[numeric_columns] = df_clean[numeric_columns].fillna(df_clean[numeric_columns].median())
+    
+    return df_clean
+
+# Feature engineering
+def create_ml_features(df):
+    """Create features for machine learning model"""
+    df_ml = df.copy()
+    
+    # Create binary target variable
+    dropout_threshold = df_ml['overall_dropout_percentage'].median()
+    df_ml['high_dropout_risk'] = (df_ml['overall_dropout_percentage'] > dropout_threshold).astype(int)
+    
+    # Encode categorical variables
+    le_province = LabelEncoder()
+    df_ml['province_encoded'] = le_province.fit_transform(df_ml['province'])
+    
+    return df_ml, le_province
+
+# Train machine learning models
+def train_models(X_train, X_test, y_train, y_test):
+    """Train and evaluate ML models"""
+    
+    # Feature scaling
+    scaler = StandardScaler()
+    X_train_scaled = scaler.fit_transform(X_train)
+    X_test_scaled = scaler.transform(X_test)
+    
+    # Random Forest Model
+    rf_model = RandomForestClassifier(n_estimators=100, random_state=42, max_depth=10)
+    rf_model.fit(X_train_scaled, y_train)
+    rf_predictions = rf_model.predict(X_test_scaled)
+    
+    # Logistic Regression Model
+    lr_model = LogisticRegression(random_state=42, max_iter=1000)
+    lr_model.fit(X_train_scaled, y_train)
+    lr_predictions = lr_model.predict(X_test_scaled)
+    
+    # Evaluate models
+    print("Random Forest Performance:")
+    print(f"Accuracy: {accuracy_score(y_test, rf_predictions):.3f}")
+    print(f"Precision: {precision_score(y_test, rf_predictions):.3f}")
+    print(f"Recall: {recall_score(y_test, rf_predictions):.3f}")
+    print(f"F1-Score: {f1_score(y_test, rf_predictions):.3f}")
+    
+    print("\\nLogistic Regression Performance:")
+    print(f"Accuracy: {accuracy_score(y_test, lr_predictions):.3f}")
+    print(f"Precision: {precision_score(y_test, lr_predictions):.3f}")
+    print(f"Recall: {recall_score(y_test, lr_predictions):.3f}")
+    print(f"F1-Score: {f1_score(y_test, lr_predictions):.3f}")
+    
+    return rf_model, lr_model, scaler
+
+# Main execution
+if __name__ == "__main__":
+    # Load data
+    df = load_and_preprocess_data("DropAlert_Rwanda_cleaned.csv")
+    
+    # Create ML features
+    df_ml, label_encoder = create_ml_features(df)
+    
+    # Feature selection
+    feature_columns = [
+        'avg_household_income_rwf',
+        'teacher_student_ratio_numeric', 
+        'attendance_rate',
+        'reenrollment_rate',
+        'completion_total',
+        'male_dropout_percentage',
+        'female_dropout_percentage',
+        'province_encoded'
+    ]
+    
+    # Prepare training data
+    X = df_ml[feature_columns]
+    y = df_ml['high_dropout_risk']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+    
+    # Train models
+    rf_model, lr_model, scaler = train_models(X_train, X_test, y_train, y_test)
+    
+    # Generate predictions for entire dataset
+    X_scaled = scaler.transform(X)
+    df_ml['dropout_risk_prediction'] = lr_model.predict(X_scaled)
+    df_ml['dropout_risk_probability'] = lr_model.predict_proba(X_scaled)[:, 1]
+    
+    # Save results
+    output_columns = ['province', 'district', 'school_name', 'year', 'overall_dropout_percentage',
+                     'dropout_risk_prediction', 'dropout_risk_probability']
+    df_ml[output_columns].to_csv('DropAlert_Rwanda_Analysis_Results.csv', index=False)
+    
+    print("\\nAnalysis complete! Results saved to DropAlert_Rwanda_Analysis_Results.csv")`;
+            
+            const blob = new Blob([pythonCode], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'DropAlert_Rwanda_ML_Code.py';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Python source code downloaded successfully!');
+        }
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+</html>
