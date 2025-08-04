@@ -6,7 +6,7 @@
 - *Name:* [AMOS Nkurunziza]
 - *Student ID:* [26973]
 - *Course:* INSY 8413 | Introduction to Big Data Analytics
-- *Assistant Lecturer:* Eric Maniraguha
+- *Assistant Lecturer:* Eric Maniraguha 
 - *Academic Year:* 2024–2025 (Semester III)
 - *Institution:* Faculty of Information Technology, AUCA
 - *Date:* Saturday, July 26, 2025
